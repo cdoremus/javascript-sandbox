@@ -1,0 +1,14 @@
+{
+  "name": "tree_data_structure",
+  "version": "1.0.0",
+  "description": "Exploration of tree data structure and DAG",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.15.0"
+  }
+}
