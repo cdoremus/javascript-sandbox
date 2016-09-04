@@ -12,6 +12,9 @@ Thumbs.db
 **/node_modules
 **/bower_components
 
+# TypeScript and Visual Studio Code type definition #
+**/typings/
+
 # Coverage #
 **/coverage/
 
