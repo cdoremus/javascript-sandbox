@@ -3,7 +3,9 @@
         "sourceMap": false,
         "noImplicitAny": false,
         "module": "commonjs",
-        "target": "es5"
+        "target": "es5",
+        "rootDir": "./",
+        "outDir": "dist"
     },
 
     "compileOnSave": true,

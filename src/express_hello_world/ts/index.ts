@@ -23,20 +23,23 @@ let app: express.Express = express();
 
 // Use a middleware function defined in middleware.js
 // The use() function inserts the function in the middleware pipeline
-app.use(create('World'));
+// create() adds user property to the request
+app.use(create('Foobar'));
 
 app.get('/hello', (request: ExtendedRequest, response: express.Response) => {
     // Get value of name from query string parameter
+    // http://localhost:3000/hello?name=Foobar
     let name: string = request.query.name;
     if (!name) {
         name = request.user.name;
     }
-    // create() adds user property
-    response.send(`Hello ${name}`); //passing a string assumes HTML output,
-                      // passing a JavaScript object assumes you want to send JSON output
+    //passing a string assumes HTML output,
+    response.send(`Hello ${name}`);
+
+    // passing a JavaScript object assumes
+    // you want to send JSON output.
+    // response.send(request.user);
+
 });
 
 app.listen(3000);
-
-
-
