@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Browser Geolocation Demonstration</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <h2>Browser Geolocation Demonstration</h2>
+    <div id="message">Geolocation message here</div>
+
+    <script src="geolocation.js"></script>
+    <script src="index.js"></script>
+    <script>
+      console.log('Before window.onload called');
+      window.onload = doGeolocation;
+      console.log('After window.onload called');
+    </script>
+  </body>
+</html>
