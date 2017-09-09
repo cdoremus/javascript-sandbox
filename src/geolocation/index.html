@@ -1,21 +1,38 @@
 <!DOCTYPE html>
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Browser Geolocation Demonstration</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      body {
+        margin: 0;
+      }
+      #container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      h2 {
+        text-align: center;
+      }
+      #message {
+        margin: 15px;
+        padding: 15px;
+        text-align: center;
+        border: 2px solid black;
+      }
+    </style>
   </head>
   <body>
-    <h2>Browser Geolocation Demonstration</h2>
-    <div id="message">Geolocation message here</div>
-
-    <script src="geolocation.js"></script>
+    <div id="container">
+      <h2>Browser Geolocation Demonstration</h2>
+      <div><button onclick="doGeolocation()">Click To Find Location</button></div>
+      <div id="message">Geolocation coordinates here</div>
+    </div>
     <script src="index.js"></script>
     <script>
-      console.log('Before window.onload called');
-      window.onload = doGeolocation;
-      console.log('After window.onload called');
+      // window.onload = doGeolocationCallbacks;
     </script>
   </body>
 </html>
