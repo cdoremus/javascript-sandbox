@@ -143,7 +143,7 @@ function doGeolocation() {
     .then(position => {
       console.log('doGeolocation() position', position);
       messageDiv.innerHTML = `
-        <h2>Your location4: </h2>
+        <h2>Your location: </h2>
         Latitude: ${position.coords.latitude}<br/>
         Longitude: ${position.coords.longitude}
       `;
