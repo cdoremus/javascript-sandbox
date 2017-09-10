@@ -12,7 +12,9 @@ export interface ExtendedRequest extends express.Request {
  * Interface representing a user with a name proeprty.
  */
 export interface User {
+    id: number;
     name: string;
+    email: string;
 }
 
 

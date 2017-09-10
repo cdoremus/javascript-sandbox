@@ -4,8 +4,8 @@
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import {create} from './middleware';
-import { ExtendedRequest } from './interfaces';
-const users = require('./users.json');
+import { ExtendedRequest, User } from './interfaces';
+const users: User[] = require('./users.json');
 
 let app: express.Express = express();
 
@@ -18,6 +18,8 @@ app.use(create('Jane'));
 app.use(bodyParser.json());
 // Support HTML forms
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.set('view engine', 'ejs');
 
 // set public folder as the app root
 app.use('/', express.static('public'));
@@ -40,9 +42,17 @@ app.get('/hello', (request: ExtendedRequest, response: express.Response) => {
 // you want to send JSON output.
 // In this case, the JSON is loaded
 // from the file users.json
-app.get('/users', (request: ExtendedRequest, response: express.Response) => {
+app.get('/users', (request: express.Request, response: express.Response) => {
 
     response.send(users);
+
+});
+
+// routing with parameters - userId in this case
+app.get('/user/:userId', (request: express.Request, response: express.Response) => {
+        const id = request.params['userId'];
+        const user = users[id - 1];
+        response.render('user', {user});
 
 });
 
