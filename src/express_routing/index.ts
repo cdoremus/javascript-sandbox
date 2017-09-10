@@ -35,11 +35,18 @@ app.get('/hello', (request: ExtendedRequest, response: express.Response) => {
     }
     //passing a string assumes HTML output,
     response.send(`Hello ${name}<div><a href="/">Home</a></div>`);
-
 });
 
-// sending back JSON
-// passing a JavaScript object assumes
+// post a form
+app.post('/hello', (request: express.Request, response: express.Response) => {
+    // input textbox name='nameparam'
+    const name = request.body.nameparam;
+    //passing a string assumes HTML output,
+    response.send(`Hello ${name}<div><a href="/">Home</a></div>`);
+});
+
+// Sending back JSON
+// Passing a JavaScript object assumes
 // you want to send JSON output.
 // In this case, the JSON is loaded
 // from the file users.json
@@ -54,7 +61,6 @@ app.get('/user/:userId', (request: express.Request, response: express.Response) 
         const id = request.params['userId'];
         const user = users[id - 1];
         response.render('user', {user});
-
 });
 
 

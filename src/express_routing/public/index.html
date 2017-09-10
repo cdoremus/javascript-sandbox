@@ -15,24 +15,28 @@
   </head>
   <body>
     <h2>Express Routing Home Page</h2>
-    <div class="block-border">
-      <div class="title">Submit a form using the 'get' method</div>
-      <div>Enter a name</div>
-        <form action="/hello">
-          <input name="name"/>
-          <input type="submit" value="Submit"/><br/>
-        </form>
-    </div>
+
     <div class="block-border">
       <div class="title">Request using 'name' query string parameter</div>
       <a href="/hello?name=Craig">Say hello to Craig</a><br/>
       <a href="/hello?name=Jim">Say hello to Jim</a><br/>
       <a href="/hello?name=">Say hello to default name set on server</a><br/>
     </div>
+
+    <div class="block-border">
+      <div class="title">Submit a form using the 'post' method</div>
+      <div>Enter a name</div>
+        <form action="/hello" method="post">
+          <input name="nameparam"/>
+          <input type="submit" value="Submit"/><br/>
+        </form>
+    </div>
+
     <div class="block-border">
       <div class="title">Request JSON</div>
       <a href="/users">Get users (use back button to return)</a>
     </div>
+
     <div class="block-border">
       <div class="title">Request User using URL parameter</div>
       <div>Find a User by ID</div>
