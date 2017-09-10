@@ -1,5 +1,5 @@
-# Routing using the Express Library and TypeScript#
-This folder holds TypeScript code demoing how to do routing with the NodeExpress library.
+# Routing using the Express Library and TypeScript
+This folder holds TypeScript code demoing how to do routing with the Node [Express](https://expressjs.com/) library.
 
 Install dependencies using the `yarn` or `npm install`
 commands.
