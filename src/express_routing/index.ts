@@ -13,12 +13,13 @@ let app: express.Express = express();
 // The use() function inserts the function in the middleware pipeline
 // create() adds 'user' property to the request
 // whose type is the User interface
-app.use(create('Jane'));
+app.use(create('Express'));
+
 // Support JSON
 app.use(bodyParser.json());
 // Support HTML forms
 app.use(bodyParser.urlencoded({ extended: true }));
-
+// EJS view engine, which by default uses the 'views' folder
 app.set('view engine', 'ejs');
 
 // set public folder as the app root
