@@ -10,3 +10,11 @@ Once the server is started, browse to
 [http://localhost:3000](http://localhost:3000).
 
 You can run the server in watch mode using `yarn watch` or `npm run watch`.
+
+This demos the following ways to do routing:
+* Route static resources from a 'public' folder.
+* Routing templated content using the Express EJS view engine.
+* Routing using a URL with a query string parameter.
+* Using a POST request to submit a form.
+* Using a GET request to obtain JSON response.
+* Routing with URL parameters.
