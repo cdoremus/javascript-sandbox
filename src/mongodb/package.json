@@ -1,0 +1,22 @@
+{
+  "name": "mongodb",
+  "version": "1.0.0",
+  "description": "MongoDb demos",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node index.ts",
+    "watch": "nodemon --watch src/**/*.ts --exec ts-node index.ts",
+    "deploy": "tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^4.11.11",
+    "ts-node": "^3.3.0"
+  },
+  "devDependencies": {
+    "@types/mongoose": "^4.7.21",
+    "@types/node": "^8.0.28",
+    "typescript": "^2.5.2"
+  }
+}
