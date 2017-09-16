@@ -3,7 +3,7 @@
         "sourceMap": false,
         "noImplicitAny": false,
         "module": "commonjs",
-        "target": "es5",
+        "target": "es2015",
         "rootDir": "./",
         "outDir": "dist",
         "types": ["node"]
