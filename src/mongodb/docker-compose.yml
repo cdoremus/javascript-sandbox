@@ -1,0 +1,14 @@
+# Insall a Docker container holding MongoDB
+# To install the docker mongo container and run mongo:
+# docker-compose up
+# To shutdown the docker mongo container and clean up images:
+# docker-compose down
+#
+version: '2'
+
+services:
+  mongodb:
+    image: mongo:3.4.4
+    container_name: mongo-container
+    ports:
+      - 27017:27017
