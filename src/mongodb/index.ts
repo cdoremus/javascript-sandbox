@@ -43,18 +43,8 @@ function validateUserByUserId(id: number) {
 }
 
 function saveUserDocument(model, user) {
-  return new Promise((resolve, reject) => {
-    let entry = new model(user);
-    entry.save((err, document) => {
-      if (err) {
-        // throw new Error(err);
-        reject(err);
-      }
-      console.log(`MongoDB User created for user ${document.name} (${document.id})`);
-      // return document;
-      resolve(document);
-    });
-  });
+  let entry = new model(user);
+  return entry.save();
 }
 
 function saveUsers(model, users) {
