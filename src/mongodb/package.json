@@ -6,7 +6,8 @@
   "scripts": {
     "docker-up": "docker-compose up",
     "docker-down": "docker-compose down",
-    "start": "ts-node index.ts && npm run docker-down",
+    "start": "npm run app && npm run docker-down",
+    "app": "ts-node index.ts",
     "watch": "nodemon --watch src/**/*.ts --exec ts-node index.ts",
     "deploy": "tsc"
   },
