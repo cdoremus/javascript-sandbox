@@ -1,10 +1,29 @@
-import * as mongoose from 'mongoose';
+import { Schema } from 'mongoose';
 
-const schema = new mongoose.Schema({
-  name: String,
-  code: String,
-  capital: String,
-  adjacent: [String]
+const GeoSchema = new Schema({
+  lat: Number,
+  lng: Number
 });
 
-export default schema;
+export const AddressSchema = new Schema({
+  street: String,
+  suite: String,
+  city: String,
+  zipcode: String,
+  geo: {type: GeoSchema}
+});
+
+export const CompanySchema = new Schema({
+  name: String,
+  catchPhrase: String,
+  bs: String
+});
+
+export const UserSchema = new Schema({
+  id: Number,
+  name: String,
+  username: String,
+  email: String,
+  address: {type: AddressSchema},
+  company: {type: CompanySchema}
+});
