@@ -21,4 +21,4 @@ var m2 = a1.map(function(x, i) {
 	return x*i;
 });
 console.log('m2: ' + m2);
-assert([0,2,9,16], m1, "MAP FCN MULTIPLY BY INDEX");
+assert([0,2,6,12], m2, "MAP FCN MULTIPLY BY INDEX");
