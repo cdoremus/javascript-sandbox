@@ -1,11 +1,13 @@
-import { Schema } from 'mongoose';
+import * as mongoose from 'mongoose';
 
-const GeoSchema = new Schema({
+const COLLECTION_NAME = 'customers';
+
+export const GeoSchema = new mongoose.Schema({
   lat: Number,
   lng: Number
 });
 
-export const AddressSchema = new Schema({
+export const AddressSchema = new mongoose.Schema({
   street: String,
   suite: String,
   city: String,
@@ -13,13 +15,13 @@ export const AddressSchema = new Schema({
   geo: {type: GeoSchema}
 });
 
-export const CompanySchema = new Schema({
+export const CompanySchema = new mongoose.Schema({
   name: String,
   catchPhrase: String,
   bs: String
 });
 
-export const UserSchema = new Schema({
+export const UserSchema = new mongoose.Schema({
   id: Number,
   name: String,
   username: String,
@@ -27,3 +29,5 @@ export const UserSchema = new Schema({
   address: {type: AddressSchema},
   company: {type: CompanySchema}
 });
+
+export const UserModel = mongoose.model('UserModel', UserSchema, COLLECTION_NAME);

@@ -1,7 +1,7 @@
+import * as mongoose from 'mongoose';
 import * as assert from 'assert';
-import * as console from 'console';
 import { Collection, createConnection } from 'mongoose';
-import { UserSchema } from './schema';
+import { UserSchema, UserModel } from './schema';
 import { User } from './domain-model';
 const users: User[] =  require('./users.json');
 
@@ -9,50 +9,37 @@ const DB_URL = 'mongodb://localhost/persons'
 const COLLECTION_NAME = 'customers';
 
 // Use native promises
-// require('mongoose').Promise = global.Promise;
+// Use of require() is a TypeScript workaround
+require('mongoose').Promise = global.Promise;
 
-const db = createConnection(DB_URL);
+mongoose.connect(DB_URL);
 
-const UsersModel = db.model('UsersModel', UserSchema, COLLECTION_NAME);
-
-try {
-  saveUsers(UsersModel, users);
-  // saveUserDocument(UsersModel, users[2]);
-} catch(err) {
-  db.close();
-  console.error('ERROR: Saving users', err);
-  throw err;
-}
-db.close();
-
-
-function validateUserByUserId(id: number) {
-  let user;
-  // create a new connection
-  const db2 = createConnection(DB_URL);
-  const UsersModel2 = db2.model('UsersModel2', UserSchema, COLLECTION_NAME);
-  UsersModel2.findOne({'id': id}, (error, document ) => {
-    if (error) {
-      throw new Error(error);
-    }
-    user = document;
-    assert(user.id === id, `Failed to find user with id ${id}`);
-    console.log(`User with id ${id} found`);
-    db2.close();
+let count = 0;
+// save users
+saveUsers(users)
+  .then(doc => {
+    // validate that 10 users have been inserted
+    UserModel.find({}).exec()
+      .then(customers => {
+        assert(customers.length === 10, 'Ten inserted users were not found')
+        mongoose.disconnect();
+      })
+      .catch(error => {
+        mongoose.disconnect();
+        console.error('QUERY ERROR ', error);
+        throw error;
+      });
+  })
+  .catch(e => {
+    mongoose.disconnect();
+    console.error('Create error', e);
   });
+
+function saveUserDocument(user) {
+  return UserModel.create(user);
 }
 
-function saveUserDocument(model, user) {
-  let entry = new model(user);
-  return entry.save();
+function saveUsers(users) {
+  const promises = users.map(user => saveUserDocument(user));
+  return Promise.all(promises);
 }
-
-function saveUsers(model, users) {
-    const promises = users.map(user => saveUserDocument(model, user));
-    console.log('PROMISES', promises);
-    Promise.all(promises);
-  }
-
-// function dropCustomersCollection(collection: Collection) {
-//   return collection.drop()
-// }
