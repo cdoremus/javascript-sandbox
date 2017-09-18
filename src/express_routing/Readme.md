@@ -1,20 +1,38 @@
-# Routing using the Express Library and TypeScript
-This folder holds TypeScript code demoing how to do routing with the Node [Express](https://expressjs.com/) library.
+## Using the Express Library as a Back End
+This folder holds [TypeScript](https://www.typescriptlang.org/) code showing how to setup and work with the Node [Express](https://expressjs.com/) library.
 
-Install dependencies using the `yarn` or `npm install`
-commands.
+It shows how to use Express to serve dynamic content via an [EJS](http://www.embeddedjs.com/) template or as a back-end API serving
+and processing JSON.
 
-Start the server using `yarn start` or `npm start`
+Install dependencies using `yarn` or `npm install`.
 
-Once the server is started, browse to
+### To run Express to serve EJS templates
+
+Invoke `yarn start` or `npm start`
+
+To run in watch mode where the server is restrated when any file changes, invoke:
+ `yarn watch` or `npm run watch`
+
+### To run Express to serve a JSON API
+
+Invoke `yarn start-api` or `npm run start-api`
+
+To run the server in watch mode using `yarn watch-api` or `npm run watch-api`.
+
+### When the server is started...
+
+Browse to
 [http://localhost:3000](http://localhost:3000).
 
-You can run the server in watch mode using `yarn watch` or `npm run watch`.
+Follow the directions on each 'home' page to exercise the Express back end.
 
-This demos the following ways to do routing:
-* Route static resources from a 'public' folder.
+This demos the following Express features:
+* How to use TypeScript with Express including dyamically compiling TypeScript to JavaScript with [ts-node](https://www.npmjs.com/package/ts-node).
+* Serving static resources from a 'public' folder.
+* Using Express middleware.
 * Routing templated content using the Express EJS view engine.
 * Routing using a URL with a query string parameter.
-* Using a POST request to submit a form.
+* Using the POST method to submit a form.
+* Using the POST method to submit a form as JSON via the native fetch API (see `postFormWithFetchAPI()` in `public/api/index.html`).
 * Using a GET request to obtain JSON response.
 * Routing with URL parameters.

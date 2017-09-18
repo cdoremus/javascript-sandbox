@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Express API Demo</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    .block-border {
+      margin: 20px;
+    }
+
+    .title {
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Express API Home Page</h2>
+  <h5>After clicking on a link or button, use back button to return to this page</h5>
+  <div class="block-border">
+    <div class="title">Submit a User using the 'post' method</div>
+    <form action="/user" method="post">
+      <label for="userid">ID: </label>
+      <input id="userid" name="id" placeholder="Enter ID" /><br/>
+      <label for="username">Name: </label>
+      <input id="username" name="name" placeholder="Enter name" /><br/>
+      <label for="useremail">Email: </label>
+      <input id="useremail" type="email" name="email" placeholder="Enter email" /><br/>
+      <input type="submit" value="Submit Form" /><br/>
+      <button onclick="postFormWithFetchAPI()">Submit Form as JSON using fetch API</button>
+    </form>
+  </div>
+
+  <div class="block-border">
+    <div class="title">Request JSON using 'get' method</div>
+    <a href="/users">Get all users</a>
+  </div>
+
+  <div class="block-border">
+    <div class="title">Request individual user using URL parameter</div>
+    <div>Find a User by ID</div>
+    <a href="/user/1">Get user 1</a><br/>
+    <a href="/user/5">Get user 5</a><br/>
+    <a href="/user/10">Get user 10</a><br/>
+  </div>
+
+  <script>
+    function postFormWithFetchAPI() {
+      const id = document.getElementById('userid').value;
+      const name = document.getElementById('username').value;
+      const email = document.getElementById('useremail').value;
+      fetch("/user", {
+        method: "POST",
+        body: { id, name, email }
+      });
+    }
+  </script>
+</body>
+
+</html>

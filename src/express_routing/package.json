@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "ts-node index.ts",
+    "start-api": "ts-node api.ts",
     "watch": "nodemon --watch src/**/*.ts --exec ts-node index.ts",
+    "watch-api": "nodemon --watch src/**/*.ts --exec ts-node api.ts",
     "deploy": "tsc"
   },
   "author": "",
