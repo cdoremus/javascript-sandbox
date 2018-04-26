@@ -1,0 +1,11 @@
+{
+  "name": "hoisting",
+  "version": "1.0.0",
+  "description": "Demonstrates JavaScript hoisting",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "author": "Craig Doremus <cdoremus@gmail.com>",
+  "license": "MIT"
+}
