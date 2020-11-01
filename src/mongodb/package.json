@@ -15,7 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "assert": "^1.4.1",
-    "mongoose": "^4.11.11",
+    "mongoose": "^5.7.5",
     "ts-node": "^3.3.0"
   },
   "devDependencies": {
